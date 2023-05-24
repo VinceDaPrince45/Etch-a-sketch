@@ -6,8 +6,8 @@ function createGrid(num = 16) {
         row.textContent = '';
         row.style.cssText = 'flex:auto; border: solid black; margin:-1px; padding:0; display:flex';
         container.appendChild(row);
-        for (let i = 0; i < num; i++) {
-            if (i == num - 1) {
+        for (let j = 0; j < num; j++) {
+            if (j == num - 1) {
                 let column = document.createElement('div');
                 column.textContent = '';
                 column.style.cssText = 'flex:auto; margin: -1px; padding: 0';
@@ -22,5 +22,14 @@ function createGrid(num = 16) {
     }
 }
 
+container.style.cssText = 'display:flex; flex-direction:column; width: 40vw; height: 40vw; margin: 0 auto';
+
 createGrid();
-container.style.cssText = 'display:flex; flex-direction:column; height:90vh';
+
+const cells = document.querySelectorAll('div');
+for (const cell of cells) {
+    cell.addEventListener('mouseenter', () => {
+        console.log('mouse enter')
+    });   
+}
+
