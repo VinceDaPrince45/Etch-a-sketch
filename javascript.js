@@ -24,7 +24,7 @@ function createGrid(num = 16) {
     }
 }
 
-container.style.cssText = 'display:flex; flex-direction:column; width: 40vw; height: 40vw; margin: 0 auto; border: solid black';
+container.style.cssText = 'display:flex; flex-direction:column; width: 40vw; height: 40vw; margin: 0 auto; border: solid black; position: absolute; top: 50%; left: 50%; -ms-transform: translate(-50%, -50%); transform: translate(-50%, -50%);';
 
 createGrid();
 
