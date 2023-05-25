@@ -5,6 +5,7 @@ function createGrid(num = 16) {
         let row = document.createElement('div');
         row.textContent = '';
         row.style.cssText = 'flex:auto; margin:-1px; padding:0; display:flex';
+        row.classList.add('row');
         container.appendChild(row);
         for (let j = 0; j < num; j++) {
             if (j == num - 1) {
@@ -50,4 +51,12 @@ for (const cell of cells) {
             cell.style.backgroundColor = 'black';
         }
     });
+}
+
+const btnClear = document.querySelector('.eraser');
+btnClear.addEventListener('onclick', () => {
+
+});
+function clear() {
+    
 }
