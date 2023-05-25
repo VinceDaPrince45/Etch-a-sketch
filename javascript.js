@@ -36,6 +36,7 @@ createGrid();
 
 const cells = document.querySelectorAll('.cell');
 let changeColor = false;
+let color = 'black';
 
 container.addEventListener('mousedown', () => {
     changeColor = true;
@@ -48,15 +49,27 @@ container.addEventListener('mouseup', () => {
 for (const cell of cells) {
     cell.addEventListener('mouseover', () => {
         if (changeColor) {
-            cell.style.backgroundColor = 'black';
+            cell.style.backgroundColor = color;
         }
     });
 }
 
-const btnClear = document.querySelector('.eraser');
-btnClear.addEventListener('onclick', () => {
-
+// function to clear whole board
+const btnClear = document.querySelector('.clear');
+btnClear.addEventListener('click', () => {
+    for (const cell of cells) {
+        cell.style.backgroundColor = '';
+    }
 });
-function clear() {
-    
-}
+
+// function to erase
+const btnErase = document.querySelector('.eraser');
+btnErase.addEventListener('click', () => {
+    color = 'white';
+});
+
+// function to draw
+const btnDraw = document.querySelector('.draw');
+btnDraw.addEventListener('click', () => {
+    color = 'black';
+});
