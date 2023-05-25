@@ -24,20 +24,30 @@ function createGrid(num = 16) {
     }
 }
 
-function color() {
-
-}
-
 container.style.cssText = 'display:flex; flex-direction:column; width: 40vw; height: 40vw; margin: 0 auto; border: solid black';
 
 createGrid();
 
-const cells = document.querySelectorAll('.cell');
-for (const cell of cells) {
-    container.addEventListener('mousedown', () => {
-        cell.addEventListener('mouseover', () => {
-            cell.style.backgroundColor = 'black';
-        });
-    });   
-}
+// when click on container, add event listener so that all cells change 
+// color when mouse moves over them
 
+// when mouse up , remove event listener from all cells
+
+const cells = document.querySelectorAll('.cell');
+let changeColor = false;
+
+container.addEventListener('mousedown', () => {
+    changeColor = true;
+});
+
+container.addEventListener('mouseup', () => {
+    changeColor = false;
+});
+
+for (const cell of cells) {
+    cell.addEventListener('mouseover', () => {
+        if (changeColor) {
+            cell.style.backgroundColor = 'black';
+        }
+    });
+}
