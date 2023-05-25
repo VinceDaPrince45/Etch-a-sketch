@@ -24,15 +24,20 @@ function createGrid(num = 16) {
     }
 }
 
+function color() {
+
+}
+
 container.style.cssText = 'display:flex; flex-direction:column; width: 40vw; height: 40vw; margin: 0 auto; border: solid black';
 
 createGrid();
 
 const cells = document.querySelectorAll('.cell');
 for (const cell of cells) {
-    cell.addEventListener('mouseenter', () => {
-        console.log('hi')
-        cell.style.backgroundColor = 'black';
+    container.addEventListener('mousedown', () => {
+        cell.addEventListener('mouseover', () => {
+            cell.style.backgroundColor = 'black';
+        });
     });   
 }
 
